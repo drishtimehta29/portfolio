@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Drishti Mehta — Marketing Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0e0e0e;--ink2:#3a3a3a;--ink3:#7a7a7a;
+  --bg:#faf9f6;--bg2:#f2f0eb;--bg3:#e8e4dc;
+  --accent:#c8a96e;--accent2:#8b5e3c;
+  --white:#ffffff;
+  --blue:#1a4a7a;--blue-light:#e8f0f8;
+  --green:#1a5c3a;--green-light:#e6f2ec;
+  --rose:#7a1a3a;--rose-light:#f2e6ec;
+  --radius:12px;--radius-sm:8px;
+  --shadow:0 2px 20px rgba(0,0,0,0.08);
+  --shadow-hover:0 8px 40px rgba(0,0,0,0.14);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
+
+/* ─── NAV ─── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(250,249,246,0.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--bg3);
+  padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  height:64px;
+}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:20px;color:var(--ink);letter-spacing:-0.3px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:13px;color:var(--ink3);text-decoration:none;letter-spacing:0.3px;transition:color 0.2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{
+  font-size:13px;font-weight:500;
+  padding:8px 20px;border-radius:40px;
+  background:var(--ink);color:var(--white);
+  text-decoration:none;transition:opacity 0.2s;
+  letter-spacing:0.2px;
+}
+.nav-cta:hover{opacity:0.8}
+
+/* ─── HERO ─── */
+.hero{
+  min-height:92vh;
+  padding:8% 5% 6%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero-bg-shape{
+  position:absolute;right:-100px;top:-100px;
+  width:600px;height:600px;border-radius:50%;
+  background:var(--bg2);
+  z-index:0;
+}
+.hero-left{position:relative;z-index:1}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--accent2);font-weight:600;
+  margin-bottom:24px;
+}
+.hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--accent2)}
+.hero-name{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(48px,6vw,80px);
+  line-height:1.0;
+  color:var(--ink);
+  letter-spacing:-2px;
+  margin-bottom:8px;
+}
+.hero-name em{font-style:italic;color:var(--accent2)}
+.hero-role{
+  font-size:18px;font-weight:300;color:var(--ink2);
+  margin-bottom:28px;line-height:1.5;
+  max-width:420px;
+}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
+.hero-tag{
+  font-size:12px;padding:6px 16px;border-radius:40px;
+  border:1px solid var(--bg3);color:var(--ink2);
+  background:var(--white);letter-spacing:0.3px;
+}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{
+  font-size:14px;font-weight:500;padding:14px 30px;
+  border-radius:40px;background:var(--ink);color:var(--white);
+  text-decoration:none;transition:all 0.2s;letter-spacing:0.2px;
+}
+.btn-primary:hover{background:var(--ink2)}
+.btn-ghost{
+  font-size:14px;font-weight:500;padding:14px 30px;
+  border-radius:40px;border:1.5px solid var(--bg3);
+  color:var(--ink2);text-decoration:none;transition:all 0.2s;
+}
+.btn-ghost:hover{border-color:var(--ink);color:var(--ink)}
+
+.hero-right{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+.hero-stat{
+  background:var(--white);
+  border:1px solid var(--bg3);
+  border-radius:var(--radius);
+  padding:24px 20px;
+  transition:transform 0.3s;
+}
+.hero-stat:hover{transform:translateY(-4px)}
+.hero-stat:first-child{grid-column:span 2;display:flex;align-items:center;gap:20px;padding:28px 24px}
+.stat-num{
+  font-family:'DM Serif Display',serif;
+  font-size:48px;line-height:1;color:var(--ink);
+}
+.hero-stat:first-child .stat-num{font-size:56px}
+.stat-label{font-size:13px;color:var(--ink3);line-height:1.4;margin-top:6px}
+.hero-stat:first-child .stat-label{font-size:14px}
+.stat-icon{font-size:28px;flex-shrink:0}
+
+/* ─── METRICS TICKER ─── */
+.ticker{
+  background:var(--ink);color:var(--white);
+  padding:16px 0;overflow:hidden;
+  position:relative;
+}
+.ticker-track{
+  display:flex;gap:0;
+  animation:ticker 30s linear infinite;
+  white-space:nowrap;width:max-content;
+}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-item{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:0 40px;font-size:13px;letter-spacing:0.5px;
+  border-right:1px solid rgba(255,255,255,0.15);
+}
+.ticker-item strong{color:var(--accent);font-weight:600}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── SECTION COMMON ─── */
+section{padding:80px 5%}
+.section-eyebrow{
+  font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--accent2);font-weight:600;margin-bottom:12px;
+}
+.section-title{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(32px,4vw,48px);
+  color:var(--ink);line-height:1.1;
+  letter-spacing:-1px;margin-bottom:48px;
+}
+.section-title em{font-style:italic;color:var(--accent2)}
+
+/* ─── CASE STUDIES ─── */
+.cases-bg{background:var(--bg2)}
+.cases-grid{display:flex;flex-direction:column;gap:2px}
+.case{
+  background:var(--white);border-radius:var(--radius);
+  overflow:hidden;border:1px solid var(--bg3);
+  transition:box-shadow 0.3s;
+}
+.case:hover{box-shadow:var(--shadow-hover)}
+.case-header{
+  display:grid;grid-template-columns:80px 1fr auto;
+  align-items:center;gap:24px;
+  padding:28px 32px;cursor:pointer;
+  transition:background 0.2s;
+}
+.case-header:hover{background:var(--bg)}
+.case-num{
+  font-family:'DM Serif Display',serif;
+  font-size:40px;color:var(--bg3);
+  font-weight:400;line-height:1;
+}
+.case-meta h3{font-size:19px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.case-meta p{font-size:13px;color:var(--ink3)}
+.case-chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{
+  font-size:11px;font-weight:600;padding:4px 12px;
+  border-radius:40px;letter-spacing:0.5px;text-transform:uppercase;
+}
+.chip-blue{background:var(--blue-light);color:var(--blue)}
+.chip-green{background:var(--green-light);color:var(--green)}
+.chip-rose{background:var(--rose-light);color:var(--rose)}
+.case-toggle{font-size:22px;color:var(--ink3);transition:transform 0.3s;line-height:1}
+.case.open .case-toggle{transform:rotate(45deg)}
+.case-body{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+.case.open .case-body{max-height:800px}
+.case-inner{
+  padding:0 32px 32px;
+  display:grid;grid-template-columns:1fr auto;gap:40px;
+  align-items:start;
+}
+.case-text{font-size:15px;color:var(--ink2);line-height:1.75}
+.case-text p{margin-bottom:14px}
+.case-text p:last-child{margin-bottom:0}
+.case-numbers{display:flex;flex-direction:column;gap:12px;min-width:180px}
+.case-metric{
+  background:var(--bg);border-radius:var(--radius-sm);
+  padding:16px 18px;text-align:center;
+  border:1px solid var(--bg3);
+}
+.case-metric-num{font-family:'DM Serif Display',serif;font-size:30px;color:var(--ink)}
+.case-metric-lbl{font-size:11px;color:var(--ink3);margin-top:2px;line-height:1.3}
+.case-links{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}
+.case-link{
+  font-size:12px;font-weight:500;padding:7px 16px;
+  border-radius:40px;border:1px solid var(--bg3);
+  color:var(--ink2);text-decoration:none;
+  display:inline-flex;align-items:center;gap:6px;
+  transition:all 0.2s;
+}
+.case-link:hover{border-color:var(--ink);color:var(--ink)}
+.case-link svg{width:12px;height:12px;flex-shrink:0}
+
+/* ─── WORK GRID ─── */
+.filter-bar{
+  display:flex;gap:10px;flex-wrap:wrap;
+  margin-bottom:36px;
+  padding-bottom:20px;
+  border-bottom:1px solid var(--bg3);
+}
+.filter-pill{
+  font-size:13px;font-weight:500;padding:8px 20px;
+  border-radius:40px;border:1.5px solid var(--bg3);
+  background:transparent;color:var(--ink2);
+  cursor:pointer;transition:all 0.2s;letter-spacing:0.2px;
+}
+.filter-pill.on{background:var(--ink);color:var(--white);border-color:var(--ink)}
+.filter-pill:hover:not(.on){border-color:var(--ink2)}
+.work-count{margin-bottom:24px;font-size:13px;color:var(--ink3)}
+.work-count span{color:var(--ink);font-weight:600}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:16px;
+}
+.card{
+  background:var(--white);border-radius:var(--radius);
+  border:1px solid var(--bg3);overflow:hidden;
+  transition:all 0.3s;text-decoration:none;
+  display:block;
+  animation:fadeUp 0.4s ease both;
+}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);border-color:transparent}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.card-thumb{
+  height:130px;display:flex;align-items:center;
+  justify-content:center;position:relative;overflow:hidden;
+}
+.thumb-ig{background:linear-gradient(135deg,#f9ce34,#ee2a7b,#6228d7)}
+.thumb-li{background:linear-gradient(135deg,#0077b5,#00a0dc)}
+.thumb-yt{background:linear-gradient(135deg,#ff0000,#cc0000)}
+.thumb-inner{
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(255,255,255,0.2);
+  display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(4px);
+}
+.thumb-inner svg{width:22px;height:22px;fill:white}
+.platform-badge{
+  position:absolute;top:10px;left:10px;
+  font-size:10px;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;padding:4px 10px;border-radius:40px;
+  background:rgba(255,255,255,0.25);color:white;
+  backdrop-filter:blur(8px);
+}
+.card-body{padding:16px 18px}
+.card-brand{
+  font-size:10px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--accent2);margin-bottom:5px;
+}
+.card-title{font-size:14px;font-weight:500;color:var(--ink);line-height:1.4;margin-bottom:10px}
+.card-footer{
+  display:flex;align-items:center;justify-content:space-between;
+}
+.card-type{font-size:11px;color:var(--ink3)}
+.card-arrow{
+  width:26px;height:26px;border-radius:50%;
+  background:var(--bg);display:flex;align-items:center;
+  justify-content:center;transition:background 0.2s;
+}
+.card:hover .card-arrow{background:var(--ink)}
+.card-arrow svg{width:12px;height:12px;stroke:var(--ink3);transition:stroke 0.2s}
+.card:hover .card-arrow svg{stroke:white}
+.hidden-card{display:none!important}
+
+/* ─── SKILLS ─── */
+.skills-bg{background:var(--ink)}
+.skills-bg .section-eyebrow{color:var(--accent)}
+.skills-bg .section-title{color:var(--white)}
+.skills-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.skill-col h4{
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);font-weight:600;margin-bottom:20px;
+}
+.skill-bars{display:flex;flex-direction:column;gap:14px}
+.skill-bar-row{display:flex;align-items:center;gap:16px}
+.skill-bar-name{font-size:14px;color:rgba(255,255,255,0.85);min-width:200px}
+.skill-bar-track{flex:1;height:3px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden}
+.skill-bar-fill{height:100%;border-radius:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 1s cubic-bezier(0.4,0,0.2,1)}
+.tools-grid{display:flex;flex-wrap:wrap;gap:10px}
+.tool-pill{
+  font-size:13px;padding:8px 18px;border-radius:40px;
+  border:1px solid rgba(255,255,255,0.12);
+  color:rgba(255,255,255,0.7);
+  transition:all 0.2s;cursor:default;
+}
+.tool-pill:hover{border-color:var(--accent);color:var(--white)}
+
+/* ─── ABOUT STRIP ─── */
+.about-strip{
+  background:var(--white);
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  align-items:center;
+}
+.about-quote{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(22px,3vw,32px);
+  line-height:1.4;color:var(--ink);
+  letter-spacing:-0.5px;
+}
+.about-quote em{font-style:italic;color:var(--accent2)}
+.about-body{font-size:15px;color:var(--ink2);line-height:1.8}
+.about-body p{margin-bottom:16px}
+.about-body p:last-child{margin-bottom:0}
+.about-contact{
+  margin-top:28px;display:flex;flex-direction:column;gap:8px;
+}
+.about-contact a{
+  font-size:14px;color:var(--ink2);text-decoration:none;
+  display:flex;align-items:center;gap:8px;
+  transition:color 0.2s;
+}
+.about-contact a:hover{color:var(--ink)}
+.about-contact svg{width:16px;height:16px;stroke:var(--ink3);flex-shrink:0}
+
+/* ─── FOOTER ─── */
+footer{
+  background:var(--ink);color:rgba(255,255,255,0.5);
+  padding:40px 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:16px;
+}
+footer .foot-name{
+  font-family:'DM Serif Display',serif;
+  font-size:22px;color:var(--white);
+}
+footer p{font-size:13px}
+footer a{color:var(--accent);text-decoration:none}
+
+/* ─── SCROLL REVEAL ─── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr;padding:24% 5% 10%}
+  .hero-bg-shape{display:none}
+  .hero-right{grid-template-columns:1fr 1fr}
+  .hero-stat:first-child{grid-column:span 2}
+  nav .nav-links{display:none}
+  .about-strip{grid-template-columns:1fr}
+  .case-inner{grid-template-columns:1fr}
+  .skills-layout{grid-template-columns:1fr}
+  .case-header{grid-template-columns:60px 1fr auto;padding:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Drishti Mehta</span>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#cases">Case Studies</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <a href="mailto:drishtimehta29@gmail.com" class="nav-cta">Get in touch</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-shape"></div>
+  <div class="hero-left">
+    <div class="hero-eyebrow">Marketing Portfolio</div>
+    <h1 class="hero-name">Drishti<br/><em>Mehta.</em></h1>
+    <p class="hero-role">Brand & Content Marketer who builds narratives that grow audiences, move brands, and create lasting impressions.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">Brand Marketing</span>
+      <span class="hero-tag">Content Strategy</span>
+      <span class="hero-tag">Social Media Growth</span>
+      <span class="hero-tag">Product Marketing</span>
+      <span class="hero-tag">Mumbai, India</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#work" class="btn-primary">View my work</a>
+      <a href="mailto:drishtimehta29@gmail.com" class="btn-ghost">drishtimehta29@gmail.com</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat">
+      <div class="stat-icon">&#128640;</div>
+      <div>
+        <div class="stat-num" data-target="42">0</div>
+        <div class="stat-label">% LinkedIn engagement lift at BeyondSeed</div>
+      </div>
+    </div>
+    <div class="hero-stat reveal">
+      <div class="stat-num" data-target="10">0</div>
+      <div class="stat-label">K+ followers grown from 4K (2.5×)</div>
+    </div>
+    <div class="hero-stat reveal">
+      <div class="stat-num" data-target="25">0</div>
+      <div class="stat-label">+ campaigns per month at Indian Railways</div>
+    </div>
+    <div class="hero-stat reveal">
+      <div class="stat-num" data-target="45">0</div>
+      <div class="stat-label">% live event engagement at National Games</div>
+    </div>
+    <div class="hero-stat reveal">
+      <div class="stat-num" data-target="3">0</div>
+      <div class="stat-label">+ years of brand & content experience</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="ticker">
+    <span class="ticker-item"><strong>+42%</strong> LinkedIn engagement — BeyondSeed</span>
+    <span class="ticker-item"><strong>4K → 10K+</strong> follower growth in months</span>
+    <span class="ticker-item"><strong>+65%</strong> content reach improvement</span>
+    <span class="ticker-item"><strong>25+ campaigns/month</strong> for Indian Railways</span>
+    <span class="ticker-item"><strong>100K+</strong> audience managed across platforms</span>
+    <span class="ticker-item"><strong>+45%</strong> live event engagement at National Games Goa</span>
+    <span class="ticker-item"><strong>+30%</strong> follower growth during campaign period</span>
+    <span class="ticker-item"><strong>3+ years</strong> of brand & content marketing experience</span>
+    <span class="ticker-item"><strong>+42%</strong> LinkedIn engagement — BeyondSeed</span>
+    <span class="ticker-item"><strong>4K → 10K+</strong> follower growth in months</span>
+    <span class="ticker-item"><strong>+65%</strong> content reach improvement</span>
+    <span class="ticker-item"><strong>25+ campaigns/month</strong> for Indian Railways</span>
+    <span class="ticker-item"><strong>100K+</strong> audience managed across platforms</span>
+    <span class="ticker-item"><strong>+45%</strong> live event engagement at National Games Goa</span>
+    <span class="ticker-item"><strong>+30%</strong> follower growth during campaign period</span>
+    <span class="ticker-item"><strong>3+ years</strong> of brand & content marketing experience</span>
+  </div>
+</div>
+
+<!-- CASE STUDIES -->
+<section class="cases-bg" id="cases">
+  <div class="section-eyebrow reveal">Selected projects</div>
+  <h2 class="section-title reveal">Case <em>studies.</em></h2>
+  <div class="cases-grid">
+
+    <div class="case" id="case1">
+      <div class="case-header" onclick="toggleCase('case1')">
+        <div class="case-num">01</div>
+        <div class="case-meta">
+          <h3>Building a VC brand on LinkedIn — from scratch</h3>
+          <p>BeyondSeed Venture Solutions &nbsp;·&nbsp; May 2025 – Present</p>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+          <div class="case-chips">
+            <span class="chip chip-blue">Brand Strategy</span>
+            <span class="chip chip-blue">LinkedIn Growth</span>
+            <span class="chip chip-blue">Content</span>
+          </div>
+          <div class="case-toggle">+</div>
+        </div>
+      </div>
+      <div class="case-body">
+        <div class="case-inner">
+          <div>
+            <div class="case-text">
+              <p>BeyondSeed needed to cut through a crowded VC landscape and position itself as a founder-first, value-driven partner — not just another cheque-writer. When I joined, the LinkedIn page had 4,000 followers and minimal engagement. There was no content playbook, no brand voice, and no strategy.</p>
+              <p>I built the entire content ecosystem from zero: defined brand pillars, created a hook-led posting framework, and developed a content calendar that balanced investor communication, founder storytelling, and ecosystem thought leadership. Every post was engineered to serve two audiences simultaneously — founders evaluating BeyondSeed as a partner, and LPs watching signal quality.</p>
+              <p>The results came fast. Within months, engagement jumped 42%, follower count crossed 10,000 (a 2.5× lift from 4,000), and multiple posts crossed 20K–50K impressions. The brand went from invisible to a recognised voice in India's startup ecosystem.</p>
+            </div>
+            <div class="case-links">
+              <a class="case-link" href="https://www.linkedin.com/posts/beyondseed-venture-solutions-pte-limited_beyondxcelerate-beyondseed-d2c-activity-7449427763360522240-Mfw8" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                BeyondXcelerate post
+              </a>
+              <a class="case-link" href="https://www.linkedin.com/posts/beyondseed-venture-solutions-pte-limited_why-we-invested-in-tcr-activity-7356556720531288064-cVt6" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                Why we invested in TCR
+              </a>
+              <a class="case-link" href="https://www.linkedin.com/posts/beyondseed-venture-solutions-pte-limited_building-indias-next-generation-of-global-activity-7366099834350592000-8j-w" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                Building India's founders
+              </a>
+              <a class="case-link" href="https://youtu.be/JNPm0rWJSIU" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                Watch video
+              </a>
+            </div>
+          </div>
+          <div class="case-numbers">
+            <div class="case-metric">
+              <div class="case-metric-num">+42%</div>
+              <div class="case-metric-lbl">LinkedIn engagement rate</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-num">2.5×</div>
+              <div class="case-metric-lbl">Follower growth (4K → 10K+)</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-num">+65%</div>
+              <div class="case-metric-lbl">Content reach improvement</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-num">50K</div>
+              <div class="case-metric-lbl">Impressions on top posts</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case" id="case2" style="margin-top:2px">
+      <div class="case-header" onclick="toggleCase('case2')">
+        <div class="case-num">02</div>
+        <div class="case-meta">
+          <h3>High-volume campaign execution for Indian Railways</h3>
+          <p>F13 Technologies (Indian Railways) &nbsp;·&nbsp; Feb 2024 – Feb 2025</p>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+          <div class="case-chips">
+            <span class="chip chip-green">Campaign Mgmt</span>
+            <span class="chip chip-green">Scale</span>
+            <span class="chip chip-green">Brand</span>
+          </div>
+          <div class="case-toggle">+</div>
+        </div>
+      </div>
+      <div class="case-body">
+        <div class="case-inner">
+          <div>
+            <div class="case-text">
+              <p>Managing social media for Indian Railways meant operating at a scale most marketers rarely encounter — a 100K+ audience, 25+ campaigns per month, and zero margin for error. I was responsible for both Central and Western Railway's digital presence, which meant two distinct brand voices, two audiences, and twice the output.</p>
+              <p>The challenge wasn't creativity — it was systems. I built a campaign framework that allowed consistent output at volume: content templates, an approval workflow, and a monthly calendar structure that could flex for breaking news, festival campaigns, and special train announcements simultaneously. Festival-based storytelling became a major engagement driver, turning routine communication into cultural moments audiences actually looked forward to.</p>
+              <p>The result: 30% engagement rate improvement and a sustained 25+ campaign cadence every single month — without quality degradation.</p>
+            </div>
+            <div class="case-links">
+              <a class="case-link" href="https://www.instagram.com/reel/DEXEhZbonH8/" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                Western Railway reel 1
+              </a>
+              <a class="case-link" href="https://www.instagram.com/reel/DDuDj91IR1t/" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                Western Railway reel 2
+              </a>
+              <a class="case-link" href="https://www.instagram.com/reel/DBv-Cv6PMYc/" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                Western Railway reel 3
+              </a>
+              <a class="case-link" href="https://www.instagram.com/reel/DBNrky0s0Gc/" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                Central Railway reel 1
+              </a>
+              <a class="case-link" href="https://www.instagram.com/reel/DBGRpWNIdv0/" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                Central Railway reel 2
+              </a>
+            </div>
+          </div>
+          <div class="case-numbers">
+            <div class="case-metric">
+              <div class="case-metric-num">100K+</div>
+              <div class="case-metric-lbl">Audience managed</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-num">+30%</div>
+              <div class="case-metric-lbl">Engagement rate lift</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-num">25+</div>
+              <div class="case-metric-lbl">Campaigns per month</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case" id="case3" style="margin-top:2px">
+      <div class="case-header" onclick="toggleCase('case3')">
+        <div class="case-num">03</div>
+        <div class="case-meta">
+          <h3>Real-time content strategy at the National Games Goa 2023</h3>
+          <p>Tattva Creations &nbsp;·&nbsp; Sep – Nov 2023</p>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+          <div class="case-chips">
+            <span class="chip chip-rose">Live Events</span>
+            <span class="chip chip-rose">Content</span>
+            <span class="chip chip-rose">Growth</span>
+          </div>
+          <div class="case-toggle">+</div>
+        </div>
+      </div>
+      <div class="case-body">
+        <div class="case-inner">
+          <div>
+            <div class="case-text">
+              <p>Live event content is a different discipline entirely. You're creating, editing, and publishing while the event is happening — no second takes, no overnight turnarounds. At the National Games Goa 2023, I led on-ground content creation across all major sporting events at a national-scale competition.</p>
+              <p>The strategy was built around two things: speed and authenticity. We chose rawness over polish — real athlete moments, crowd energy, behind-the-scenes access. This approach built trust with audiences who were tired of over-produced sports content. I designed a real-time publishing workflow that let us post within minutes of key moments, keeping audiences engaged between events and coming back for more.</p>
+              <p>The campaign delivered a 45% engagement lift during the live period and 30% follower growth — numbers that held even after the event ended, showing the content had built genuine audience relationships, not just spike traffic.</p>
+            </div>
+            <div class="case-links">
+              <a class="case-link" href="https://www.instagram.com/reel/CzRLI48SPna/" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                Reel 1
+              </a>
+              <a class="case-link" href="https://www.instagram.com/reel/CzLUGN4gTmX/" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                Reel 2
+              </a>
+              <a class="case-link" href="https://www.instagram.com/reel/CzBZFEiI1Qs/" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                Reel 3
+              </a>
+              <a class="case-link" href="https://www.instagram.com/reel/CyxhN9hrhjg/" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                Reel 4
+              </a>
+              <a class="case-link" href="https://www.instagram.com/reel/CyvFRXZg8Ps/" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                Reel 5
+              </a>
+              <a class="case-link" href="https://www.instagram.com/reel/Cyu2vMsrtDx/" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                Reel 6
+              </a>
+            </div>
+          </div>
+          <div class="case-numbers">
+            <div class="case-metric">
+              <div class="case-metric-num">+45%</div>
+              <div class="case-metric-lbl">Live engagement spike</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-num">+30%</div>
+              <div class="case-metric-lbl">Follower growth</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-num">6</div>
+              <div class="case-metric-lbl">Reels produced</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WORK SAMPLES -->
+<section id="work">
+  <div class="section-eyebrow reveal">Work samples</div>
+  <h2 class="section-title reveal">The actual <em>work.</em></h2>
+  <div class="filter-bar reveal">
+    <button class="filter-pill on" onclick="filter('all',this)">All work</button>
+    <button class="filter-pill" onclick="filter('beyondseed',this)">BeyondSeed</button>
+    <button class="filter-pill" onclick="filter('railways',this)">Indian Railways</button>
+    <button class="filter-pill" onclick="filter('nationalgames',this)">National Games</button>
+    <button class="filter-pill" onclick="filter('instagram',this)">Instagram Reels</button>
+    <button class="filter-pill" onclick="filter('linkedin',this)">LinkedIn</button>
+  </div>
+  <p class="work-count"><span id="count">18</span> pieces of work</p>
+  <div class="grid" id="workGrid">
+
+    <a class="card" data-cat="beyondseed linkedin" href="https://www.linkedin.com/posts/beyondseed-venture-solutions-pte-limited_beyondxcelerate-beyondseed-d2c-activity-7449427763360522240-Mfw8" target="_blank">
+      <div class="card-thumb thumb-li"><span class="platform-badge">LinkedIn</span><div class="thumb-inner"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div></div>
+      <div class="card-body"><div class="card-brand">BeyondSeed</div><div class="card-title">BeyondXcelerate D2C accelerator programme launch</div><div class="card-footer"><span class="card-type">Brand storytelling</span><div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div></div></div>
+    </a>
+
+    <a class="card" data-cat="beyondseed linkedin" href="https://www.linkedin.com/posts/beyondseed-venture-solutions-pte-limited_beyondxcelerate-d2cindia-startupindia-activity-7435308077291298816-UI0q" target="_blank">
+      <div class="card-thumb thumb-li"><span class="platform-badge">LinkedIn</span><div class="thumb-inner"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div></div>
+      <div class="card-body"><div class="card-brand">BeyondSeed</div><div class="card-title">D2C India startup ecosystem campaign</div><div class="card-footer"><span class="card-type">Ecosystem content</span><div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div></div></div>
+    </a>
+
+    <a class="card" data-cat="beyondseed linkedin" href="https://www.linkedin.com/posts/beyondseed-venture-solutions-pte-limited_beyondseed-beerandbites-dubaistartups-activity-7427958387914493953-TA0L" target="_blank">
+      <div class="card-thumb thumb-li"><span class="platform-badge">LinkedIn</span><div class="thumb-inner"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div></div>
+      <div class="card-body"><div class="card-brand">BeyondSeed</div><div class="card-title">Dubai startups community event coverage</div><div class="card-footer"><span class="card-type">Event coverage</span><div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div></div></div>
+    </a>
+
+    <a class="card" data-cat="beyondseed linkedin" href="https://www.linkedin.com/posts/beyondseed-venture-solutions-pte-limited_beyondxcelerate-beyondseed-d2cindia2025-activity-7421787492112027648-TogG" target="_blank">
+      <div class="card-thumb thumb-li"><span class="platform-badge">LinkedIn</span><div class="thumb-inner"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div></div>
+      <div class="card-body"><div class="card-brand">BeyondSeed</div><div class="card-title">BeyondXcelerate D2C India 2025 — growth campaign</div><div class="card-footer"><span class="card-type">Campaign post</span><div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div></div></div>
+    </a>
+
+    <a class="card" data-cat="beyondseed linkedin" href="https://www.linkedin.com/posts/beyondseed-venture-solutions-pte-limited_building-indias-next-generation-of-global-activity-7366099834350592000-8j-w" target="_blank">
+      <div class="card-thumb thumb-li"><span class="platform-badge">LinkedIn</span><div class="thumb-inner"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div></div>
+      <div class="card-body"><div class="card-brand">BeyondSeed</div><div class="card-title">Building India's next generation of global founders</div><div class="card-footer"><span class="card-type">Vision content</span><div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div></div></div>
+    </a>
+
+    <a class="card" data-cat="beyondseed linkedin" href="https://www.linkedin.com/posts/beyondseed-venture-solutions-pte-limited_why-we-invested-in-tcr-activity-7356556720531288064-cVt6" target="_blank">
+      <div class="card-thumb thumb-li"><span class="platform-badge">LinkedIn</span><div class="thumb-inner"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div></div>
+      <div class="card-body"><div class="card-brand">BeyondSeed</div><div class="card-title">Why we invested in TCR — investor storytelling</div><div class="card-footer"><span class="card-type">Investor narrative</span><div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div></div></div>
+    </a>
+
+    <a class="card" data-cat="beyondseed" href="https://youtu.be/JNPm0rWJSIU" target="_blank">
+      <div class="card-thumb thumb-yt"><span class="platform-badge">YouTube</span><div class="thumb-inner"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></div></div>
+      <div class="card-body"><div class="card-brand">BeyondSeed</div><div class="card-title">Brand video — storytelling & production</div><div class="card-footer"><span class="card-type">Video production</span><div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div></div></div>
+    </a>
+
+    <a class="card" data-cat="railways instagram" href="https://www.instagram.com/reel/DEXEhZbonH8/" target="_blank">
+      <div class="card-thumb thumb-ig"><span class="platform-badge">Instagram</span><div class="thumb-inner"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+      <div class="card-body"><div class="card-brand">Western Railway</div><div class="card-title">Campaign reel — audience engagement</div><div class="card-footer"><span class="card-type">Instagram Reel</span><div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div></div></div>
+    </a>
+
+    <a class="card" data-cat="railways instagram" href="https://www.instagram.com/reel/DDuDj91IR1t/" target="_blank">
+      <div class="card-thumb thumb-ig"><span class="platform-badge">Instagram</span><div class="thumb-inner"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+      <div class="card-body"><div class="card-brand">Western Railway</div><div class="card-title">Festival storytelling reel — cultural moment</div><div class="card-footer"><span class="card-type">Instagram Reel</span><div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div></div></div>
+    </a>
+
+    <a class="card" data-cat="railways instagram" href="https://www.instagram.com/reel/DBv-Cv6PMYc/" target="_blank">
+      <div class="card-thumb thumb-ig"><span class="platform-badge">Instagram</span><div class="thumb-inner"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+      <div class="card-body"><div class="card-brand">Western Railway</div><div class="card-title">Public awareness campaign reel</div><div class="card-footer"><span class="card-type">Instagram Reel</span><div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div></div></div>
+    </a>
+
+    <a class="card" data-cat="railways instagram" href="https://www.instagram.com/reel/DBNrky0s0Gc/" target="_blank">
+      <div class="card-thumb thumb-ig"><span class="platform-badge">Instagram</span><div class="thumb-inner"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+      <div class="card-body"><div class="card-brand">Central Railway</div><div class="card-title">Central Railway — brand campaign reel</div><div class="card-footer"><span class="card-type">Instagram Reel</span><div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div></div></div>
+    </a>
+
+    <a class="card" data-cat="railways instagram" href="https://www.instagram.com/reel/DBGRpWNIdv0/" target="_blank">
+      <div class="card-thumb thumb-ig"><span class="platform-badge">Instagram</span><div class="thumb-inner"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+      <div class="card-body"><div class="card-brand">Central Railway</div><div class="card-title">Engagement campaign — passenger communication</div><div class="card-footer"><span class="card-type">Instagram Reel</span><div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div></div></div>
+    </a>
+
+    <a class="card" data-cat="railways instagram" href="https://www.instagram.com/reel/DANlLNsonPi/" target="_blank">
+      <div class="card-thumb thumb-ig"><span class="platform-badge">Instagram</span><div class="thumb-inner"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+      <div class="card-body"><div class="card-brand">Central Railway</div><div class="card-title">Special train initiative — content campaign</div><div class="card-footer"><span class="card-type">Instagram Reel</span><div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div></div></div>
+    </a>
+
+    <a class="card" data-cat="nationalgames instagram" href="https://www.instagram.com/reel/CzRLI48SPna/" target="_blank">
+      <div class="card-thumb thumb-ig"><span class="platform-badge">Instagram</span><div class="thumb-inner"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+      <div class="card-body"><div class="card-brand">National Games Goa 2023</div><div class="card-title">Live event reel — on-ground coverage</div><div class="card-footer"><span class="card-type">Instagram Reel</span><div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div></div></div>
+    </a>
+
+    <a class="card" data-cat="nationalgames instagram" href="https://www.instagram.com/reel/CzLUGN4gTmX/" target="_blank">
+      <div class="card-thumb thumb-ig"><span class="platform-badge">Instagram</span><div class="thumb-inner"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+      <div class="card-body"><div class="card-brand">National Games Goa 2023</div><div class="card-title">Athlete coverage reel — real-time storytelling</div><div class="card-footer"><span class="card-type">Instagram Reel</span><div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div></div></div>
+    </a>
+
+    <a class="card" data-cat="nationalgames instagram" href="https://www.instagram.com/reel/CzBZFEiI1Qs/" target="_blank">
+      <div class="card-thumb thumb-ig"><span class="platform-badge">Instagram</span><div class="thumb-inner"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+      <div class="card-body"><div class="card-brand">National Games Goa 2023</div><div class="card-title">Engagement reel — live audience interaction</div><div class="card-footer"><span class="card-type">Instagram Reel</span><div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div></div></div>
+    </a>
+
+    <a class="card" data-cat="nationalgames instagram" href="https://www.instagram.com/reel/CyxhN9hrhjg/" target="_blank">
+      <div class="card-thumb thumb-ig"><span class="platform-badge">Instagram</span><div class="thumb-inner"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+      <div class="card-body"><div class="card-brand">National Games Goa 2023</div><div class="card-title">Event highlights — sports & moments</div><div class="card-footer"><span class="card-type">Instagram Reel</span><div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div></div></div>
+    </a>
+
+    <a class="card" data-cat="nationalgames instagram" href="https://www.instagram.com/reel/CyvFRXZg8Ps/" target="_blank">
+      <div class="card-thumb thumb-ig"><span class="platform-badge">Instagram</span><div class="thumb-inner"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+      <div class="card-body"><div class="card-brand">National Games Goa 2023</div><div class="card-title">Audience interaction campaign reel</div><div class="card-footer"><span class="card-type">Instagram Reel</span><div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div></div></div>
+    </a>
+
+    <a class="card" data-cat="nationalgames instagram" href="https://www.instagram.com/reel/Cyu2vMsrtDx/" target="_blank">
+      <div class="card-thumb thumb-ig"><span class="platform-badge">Instagram</span><div class="thumb-inner"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+      <div class="card-body"><div class="card-brand">National Games Goa 2023</div><div class="card-title">Closing campaign — end-of-event storytelling</div><div class="card-footer"><span class="card-type">Instagram Reel</span><div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div></div></div>
+    </a>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-bg" id="skills">
+  <div class="section-eyebrow reveal">Capabilities</div>
+  <h2 class="section-title reveal">What I <em>bring.</em></h2>
+  <div class="skills-layout">
+    <div>
+      <div class="skill-col">
+        <h4>Core skills</h4>
+        <div class="skill-bars">
+          <div class="skill-bar-row"><span class="skill-bar-name">Brand strategy & development</span><div class="skill-bar-track"><div class="skill-bar-fill" data-w="0.95"></div></div></div>
+          <div class="skill-bar-row"><span class="skill-bar-name">Content strategy & planning</span><div class="skill-bar-track"><div class="skill-bar-fill" data-w="0.95"></div></div></div>
+          <div class="skill-bar-row"><span class="skill-bar-name">Social media marketing</span><div class="skill-bar-track"><div class="skill-bar-fill" data-w="0.90"></div></div></div>
+          <div class="skill-bar-row"><span class="skill-bar-name">Campaign management</span><div class="skill-bar-track"><div class="skill-bar-fill" data-w="0.90"></div></div></div>
+          <div class="skill-bar-row"><span class="skill-bar-name">Analytics & performance reporting</span><div class="skill-bar-track"><div class="skill-bar-fill" data-w="0.80"></div></div></div>
+          <div class="skill-bar-row"><span class="skill-bar-name">Community engagement</span><div class="skill-bar-track"><div class="skill-bar-fill" data-w="0.85"></div></div></div>
+          <div class="skill-bar-row"><span class="skill-bar-name">Performance marketing (Meta Ads)</span><div class="skill-bar-track"><div class="skill-bar-fill" data-w="0.70"></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="skill-col">
+        <h4>Tools & platforms</h4>
+        <div class="tools-grid">
+          <span class="tool-pill">Canva</span>
+          <span class="tool-pill">Adobe Photoshop</span>
+          <span class="tool-pill">Adobe Illustrator</span>
+          <span class="tool-pill">Hootsuite</span>
+          <span class="tool-pill">Sprout Social</span>
+          <span class="tool-pill">HubSpot</span>
+          <span class="tool-pill">Mailchimp</span>
+          <span class="tool-pill">Meta Business Suite</span>
+          <span class="tool-pill">LinkedIn Campaign Manager</span>
+          <span class="tool-pill">Instagram</span>
+          <span class="tool-pill">Facebook Ads Manager</span>
+          <span class="tool-pill">Google Analytics</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-strip" id="about">
+  <div class="about-quote reveal">
+    "I don't just create content — I build brand narratives that <em>connect,</em> convert, and compound over time."
+  </div>
+  <div>
+    <div class="about-body reveal">
+      <p>I'm Drishti — a performance-driven marketing professional with 3+ years of experience building brand presence from the ground up across early-stage startups, large-scale public institutions, and national live events.</p>
+      <p>My background spans VC brand building at BeyondSeed, high-volume campaign management for Indian Railways (100K+ audience, 25+ campaigns/month), and real-time content strategy at national sporting events. I've worked closely with founders, cross-functional teams, and senior stakeholders to turn marketing goals into measurable outcomes.</p>
+      <p>I'm open to Brand Marketing, Content Marketing, and Product Marketing roles where storytelling meets strategy.</p>
+      <div class="about-contact">
+        <a href="mailto:drishtimehta29@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          drishtimehta29@gmail.com
+        </a>
+        <a href="tel:+918379942927">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +91 8379942927
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="foot-name">Drishti Mehta</div>
+    <p style="margin-top:6px">Mumbai, India &nbsp;·&nbsp; Open to new opportunities</p>
+  </div>
+  <p>Built for &nbsp;<a href="mailto:drishtimehta29@gmail.com">drishtimehta29@gmail.com</a></p>
+</footer>
+
+<script>
+function toggleCase(id){
+  const el=document.getElementById(id);
+  el.classList.toggle('open');
+}
+
+function filter(cat,btn){
+  document.querySelectorAll('.filter-pill').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  const cards=document.querySelectorAll('#workGrid .card');
+  let n=0;
+  cards.forEach((c,i)=>{
+    const cats=c.dataset.cat||'';
+    const show=cat==='all'||cats.includes(cat);
+    c.classList.toggle('hidden-card',!show);
+    if(show){c.style.animationDelay=(n*0.04)+'s';n++;}
+  });
+  document.getElementById('count').textContent=n;
+}
+
+const counters=document.querySelectorAll('.stat-num[data-target]');
+function animateCounters(){
+  counters.forEach(el=>{
+    const target=+el.dataset.target;
+    let cur=0;
+    const step=Math.ceil(target/40);
+    const t=setInterval(()=>{
+      cur=Math.min(cur+step,target);
+      el.textContent=cur;
+      if(cur>=target)clearInterval(t);
+    },30);
+  });
+}
+
+const bars=document.querySelectorAll('.skill-bar-fill');
+function animateBars(){
+  bars.forEach(b=>{
+    b.style.transform=`scaleX(${b.dataset.w})`;
+  });
+}
+
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      if(e.target.closest('.hero-right'))animateCounters();
+      if(e.target.closest('.skills-bg'))animateBars();
+    }
+  });
+},{threshold:0.15});
+reveals.forEach(r=>observer.observe(r));
+
+setTimeout(()=>{
+  animateCounters();
+},600);
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+</script>
+</body>
+</html>
